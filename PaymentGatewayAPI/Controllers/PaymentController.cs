@@ -69,7 +69,7 @@ namespace PaymentGatewayAPI.Controllers
         [HttpGet]
         public IActionResult GetPaymentDetail(Guid trackingNumber)
         {
-            _logger.LogInformation("Starting GetPaymentDetail method");
+            _logger.LogInformation($"Starting GetPaymentDetail method for {trackingNumber}");
             var paymentResult = _dataOperations.GetTrackingInfo(trackingNumber);
             return paymentResult != null
                 ? Ok(new ResponseModel<ResponseLogEntity>() { Success = true, TrackingNumber = trackingNumber, Data = paymentResult, Notification = "OK" })

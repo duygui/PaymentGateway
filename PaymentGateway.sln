@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INGBankMockAPI", "INGBankMo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentModels", "PaymentModels\PaymentModels.csproj", "{82CE44F3-5B2A-4F60-B292-29CB0CE20329}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGatewayTest", "PaymentGatewayTest\PaymentGatewayTest.csproj", "{BA324F4C-1DCD-4AE0-859F-7386B0BFC43F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGatewayTest", "PaymentGatewayTest\PaymentGatewayTest.csproj", "{BA324F4C-1DCD-4AE0-859F-7386B0BFC43F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
