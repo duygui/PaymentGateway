@@ -31,6 +31,8 @@ The reason it uses the Factory pattern is making it easy to implement alternativ
 
 **400 ->Bad Request:** Data sent is invalid
 
+**401 ->Unauthorized:** API key is missing or invalid
+
 **404 ->Not Found:** No payment detail found with the given tracking number
 
 
