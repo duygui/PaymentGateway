@@ -7,12 +7,12 @@ This API provides its users to make the payment process from one single point re
 The user can send the payment information to the system by making an HTTP POST request with its API key. Data is validated and sensitive information is encrypted at this step. Payment Gateway API will send the card info to the acquirer bank and gets the response, returns information to the user with a tracking number. Users can search for payment details with this number later by making HTTP GET requests. Incoming requests and external bank responses are logged to the database.
 
 # Technical Overview
-This project is built on .NET Core 3.1, thanks to that it is cross-platform and capable of running on both Microsoft and Linux servers.
-PostgreSQL is used as a Database and Fluent Migrator is used for migrating the tables. The ORM of the project is NPOCO and all query operations are made with the help of Linq. 
-Integration tests are written with xUnit so that a test host can be created and requests are made to the system. Payment Gateway API has a swagger UI which makes API calls easier. All methods of the system require a registered API key. Sensitive information is encrypted by the Sha512 algorithm. Payment Gateway API has a request limiting feature which assures stability.
+This project is built on *.NET Core 3.1*, thanks to that it is cross-platform and capable of running on both Microsoft and Linux servers.
+*PostgreSQL* is used as a Database and *Fluent Migrator* is used for migrating the tables. The ORM of the project is *NPOCO* and all query operations are made with the help of *Linq*. 
+Integration tests are written with *xUnit* so that a test host can be created and requests are made to the system. Payment Gateway API has a *Swagger UI* which makes API calls easier. All methods of the system require a registered *API key for authentication*. Sensitive information is *encrypted by the Sha512* algorithm. Payment Gateway API has a *request limiting* feature which assures stability.
 
-Payment Gateway API decides which system to go to and send requests to the related system. While doing this, it uses the Factory pattern, so that it is easy to add new acquiring banks (CreditCardPaymentFactory.cs).
-The reason it uses the Factory pattern is making it easy to implement alternative payment options in the future by creating a factory of factories(a factory provider that creates IPaymentFactory instances), which is Abstract Factory. This approach makes our system open to extension and close to modification.
+Payment Gateway API decides which system to go to and send requests to the related system. While doing this, it uses the *Factory pattern*, so that it is easy to add new acquiring banks (CreditCardPaymentFactory.cs).
+The reason it uses the Factory pattern is making it easy to implement alternative payment options in the future by creating a factory of factories(a factory provider that creates IPaymentFactory instances), which is Abstract Factory. This approach makes our system *open to extension and close to modification*.
 
 # Response Codes
 ## Post method:
