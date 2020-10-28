@@ -11,8 +11,8 @@ This project is built on .NET Core 3.1, thanks to that it is cross-platform and 
 PostgreSQL is used as a Database and Fluent Migrator is used for migrating the tables. The ORM of the project is NPOCO and all query operations are made with the help of Linq. 
 Integration tests are written with xUnit so that a test host can be created and requests are made to the system. Payment Gateway API has a swagger UI which makes API calls easier. All methods of the system require a registered API key. Sensitive information is encrypted by the Sha512 algorithm. Payment Gateway API has a request limiting feature which assures stability.
 
-Payment Gateway API decides which system to go to and send requests to the related system. While doing this, it uses the Factory pattern, so that it is easy to add new acquiring banks.
-The reason it uses the Factory pattern is making it easy to implement alternative payment options in the future by creating a factory of factories, which is Abstract Factory. This approach makes our system open to extension and close to modification.
+Payment Gateway API decides which system to go to and send requests to the related system. While doing this, it uses the Factory pattern, so that it is easy to add new acquiring banks (CreditCardPaymentFactory.cs).
+The reason it uses the Factory pattern is making it easy to implement alternative payment options in the future by creating a factory of factories(a factory provider that creates IPaymentFactory instances), which is Abstract Factory. This approach makes our system open to extension and close to modification.
 
 # Response Codes
 ## Post method:
@@ -34,6 +34,8 @@ The reason it uses the Factory pattern is making it easy to implement alternativ
 **401 ->Unauthorized:** API key is missing or invalid
 
 **404 ->Not Found:** No payment detail found with the given tracking number
+
+**429 ->Too many requests:** Too many requests send for a specific amount of time
 
 
 # Testing the application
