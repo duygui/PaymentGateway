@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using PaymentGatewayAPI.DataAccess;
 using PaymentGatewayAPI.DataMigration;
 using PaymentGatewayAPI.Filters;
+using PaymentGatewayAPI.Repositories;
 
 namespace PaymentGatewayAPI
 {
@@ -36,6 +37,7 @@ namespace PaymentGatewayAPI
             services.AddControllers();
             services.AddSingleton<IDataOperations, DataOperations>();
             services.AddSingleton<IPaymentFactory, CreditCardPaymentFactory>();
+            services.AddSingleton<IPaymentRepository, PaymentRepository>();
 
             services.AddSwaggerGen(c => c.OperationFilter<HeaderParameterOperationFilter>());
             services.AddFluentMigratorCore()

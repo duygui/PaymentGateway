@@ -36,7 +36,8 @@ namespace PaymentGatewayAPI.DataMigration
 
         private static void CreateDatabase(string connectionStringWithoutDb, string dbName)
         {
-            string createScript = $"CREATE DATABASE \"{dbName}\"  WITH OWNER = postgres ENCODING = 'UTF8' LC_COLLATE = 'tr_TR.utf8' LC_CTYPE = 'tr_TR.utf8' TABLESPACE = pg_default CONNECTION LIMIT = -1 TEMPLATE template0; ";
+            string createScript = $"CREATE DATABASE \"{dbName}\"  WITH OWNER = postgres ENCODING = 'UTF8' " +
+                $"LC_COLLATE = 'C' LC_CTYPE = 'C' TABLESPACE = pg_default CONNECTION LIMIT = -1 TEMPLATE template0; ";
             using NpgsqlConnection connection = new NpgsqlConnection(connectionStringWithoutDb);
             NpgsqlCommand command = new NpgsqlCommand(createScript, connection);
             connection.Open();
